@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    
+    <% if user_signed_in? %>
+    <h3>Hello, <%= current_user.email %>!</h3>
+    <h4>Hello, <%= current_user.name %> <%= current_user.age %>!</h4>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to "Đăng nhập thì đến với em nè\n", new_user_session_path %>
+    <% end %>
+    <%= link_to "Người chưa có tài khoản thì vào đây", new_user_registration_path %>
+    <hr>
+    
     <%= yield %>
+    
+    
   </body>
 </html>
