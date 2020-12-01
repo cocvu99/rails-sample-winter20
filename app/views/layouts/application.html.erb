@@ -14,11 +14,13 @@
     <% if user_signed_in? %>
     <h3>Hello, <%= current_user.email %>!</h3>
     <h4>Hello, <%= current_user.name %> <%= current_user.age %>!</h4>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to "Dang xuat", destroy_user_session_path, method: :delete %>
+      <%= link_to current_user.name , users_show_path %>
+      <%= link_to "Chinh sua", edit_user_registration_path %>
     <% else %>
-    <%= link_to "Đăng nhập thì đến với em nè\n", new_user_session_path %>
+      <%= link_to "Đăng nhập thì đến với em nè\n", new_user_session_path %>
+      <%= link_to "Dang ky tai khoan", new_user_registration_path %>
     <% end %>
-    <%= link_to "Người chưa có tài khoản thì vào đây", new_user_registration_path %>
     <hr>
     
     <%= yield %>
